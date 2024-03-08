@@ -8,17 +8,18 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.0/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-
+<body class="">
+    <header class="container mx-auto">
+        <nav class="lg:py-8 py-5 text-center">
+          <a style="background-image: url(images/sunset.jpg); background-size: cover; background-position: bottom;" class=" p-4 text-2xl lg:text-7xl font-extrabold uppercase bg-clip-text text-transparent " href="">Area Measurements</a>
+        </nav>
     </header>
-    <main class="p-8">
+    <main class="container mx-auto bg-gray-50 lg:px-0 px-3 ">
         <!-- Main Content Container -->
-        <div class="flex  flex-col md:flex-row lg:flex-row">
             <!-- Card Container -->
-            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="flex justify-center lg:flex-row flex-col lg:flex-wrap gap-8">
                 <!-- Triangle -->
-                <div class="card w-96 bg-base-100 border-2 rounded-none">
+                <div class="card lg:w-96 w-full rounded-xl bg-white shadow-lg">
                     <figure class="px-10 pt-10">
                       <img src="images/triangle.png" alt="Trianlge" class="" />
                     </figure>
@@ -27,93 +28,142 @@
                       <p>Area (A) = 0.5 x b x h</p>
                       <div class="flex gap-4 p-2">
                         <div>
-                            <input id="triangle-base" class="mr-2 bg-gray-100 w-24 px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text" name="" placeholder="base"><span>cm</span>
+                            <input id="triangle-base" class="mr-2 bg-gray-100 lg:w-24 w-16 px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text"  placeholder="base"><span>cm</span>
                         </div>
                         <div>
-                            <input id="triangle-height" class="mr-2 bg-gray-100 w-24  px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text" name="" id="" placeholder="height"><span>cm</span>
+                            <input id="triangle-height" class="mr-2 bg-gray-100 lg:w-24 w-16  px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text" id="" placeholder="height"><span>cm</span>
                         </div>
                       </div>
                       <div class="flex items-center justify-center">
-                        <p class="text-xl mr-2">Total Area:</p><span id="triangle-area" class="text-xl font-bold"></span><span class="text-lg">cm<sup>2</sup></span>
+                        <p class="text-xl mr-2">Total Area:</p><span id="triangle-area-container" class="text-xl font-bold"></span><span class="text-lg">cm<sup>2</sup></span>
                       </div>
                       <div class="">
-                        <button onclick="calculateTriangleArea()" class="w-full btn bg-green-600 hover:text-slate-100 hover:bg-green-700 rounded py-2 px-32">Calculate</button>
+                        <button onclick="calculateTriangleArea()" class="lg:w-full w-9/12 btn bg-green-700 text-white uppercase hover:text-slate-100 hover:bg-green-600 rounded-full py-2 px-32">Calculate</button>
                       </div>
                     </div>
                   </div>
                   <!-- Rectangle -->
-                <div class="card w-96 bg-base-100 border-2 rounded-none">
+                <div class="card lg:w-96 w-full rounded-xl bg-white shadow-lg">
                     <figure class="px-10 pt-10">
                       <img src="images/rectangle.png" alt="Shoes" class="" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">Shoes!</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
-                      <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                      <h2 class="card-title">Rectangle</h2>
+                      <p>Area (A) = l x w</p>
+                      <div class="flex gap-4 p-2">
+                        <div>
+                            <input id="rectangle-base" class="mr-2 bg-gray-100 lg:w-24 w-16 px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text"  placeholder="length"><span>cm</span>
+                        </div>
+                        <div>
+                            <input id="rectangle-height" class="mr-2 bg-gray-100 lg:w-24 w-16  px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text" id="" placeholder="width"><span>cm</span>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-center">
+                        <p class="text-xl mr-2">Total Area:</p><span id="rectangle-area-container" class="text-xl font-bold"></span><span class="text-lg">cm<sup>2</sup></span>
+                      </div>
+                      <div class="">
+                        <button onclick="calculateRectangleArea()" class="lg:w-full w-9/12 btn bg-green-700 text-white uppercase hover:text-slate-100 hover:bg-green-600 rounded-full py-2 px-32">Calculate</button>
                       </div>
                     </div>
                   </div>
                   <!-- Parallelogram -->
-                <div class="card w-96 bg-base-100 border-2 rounded-none">
+                <div class="card lg:w-96 w-full rounded-xl bg-white shadow-lg">
                     <figure class="px-10 pt-10">
                       <img src="images/parallelogram.png" alt="Shoes" class="" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">Shoes!</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
-                      <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                      <h2 class="card-title">Parallelogram</h2>
+                      <p>Area (A) = b x h</p>
+                      <div class="flex gap-4 p-2">
+                        <div>
+                            <input id="parallelogram-base" class="mr-2 bg-gray-100 lg:w-24 w-16 px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text"  placeholder="base"><span>cm</span>
+                        </div>
+                        <div>
+                            <input id="parallelogram-height" class="mr-2 bg-gray-100 lg:w-24 w-16  px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text" id="" placeholder="height"><span>cm</span>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-center">
+                        <p class="text-xl mr-2">Total Area:</p><span id="parallelogram-area-container" class="text-xl font-bold"></span><span class="text-lg">cm<sup>2</sup></span>
+                      </div>
+                      <div class="">
+                        <button onclick="calculateParallelogramArea()" class="lg:w-full w-9/12 btn bg-green-700 text-white uppercase hover:text-slate-100 hover:bg-green-600 rounded-full py-2 px-32">Calculate</button>
                       </div>
                     </div>
                   </div>
                   <!-- Rhombus -->
-                <div class="card w-96 bg-base-100 border-2 rounded-none">
+                <div class="card lg:w-96 w-full rounded-xl bg-white shadow-lg">
                     <figure class="px-10 pt-10">
                       <img src="images/rhombus.png" alt="Shoes" class="" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">Shoes!</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
-                      <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                      <h2 class="card-title">Rhombus</h2>
+                      <p>Area (A) = 0.5 x d1 x d2</p>
+                      <div class="flex gap-4 p-2">
+                        <div>
+                            <input id="rhombus-diagonal1" class="mr-2 bg-gray-100 lg:w-24 w-16 px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text"  placeholder="d1"><span>cm</span>
+                        </div>
+                        <div>
+                            <input id="rhombus-diagonal2" class="mr-2 bg-gray-100 lg:w-24 w-16  px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text" id="" placeholder="d2"><span>cm</span>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-center">
+                        <p class="text-xl mr-2">Total Area:</p><span id="rhombus-area-container" class="text-xl font-bold"></span><span class="text-lg">cm<sup>2</sup></span>
+                      </div>
+                      <div class="">
+                        <button onclick="calculateRhombusArea()" class="lg:w-full w-9/12 btn bg-green-700 text-white uppercase hover:text-slate-100 hover:bg-green-600 rounded-full py-2 px-32">Calculate</button>
                       </div>
                     </div>
                   </div>
                   <!-- Pentagon -->
-                <div class="card w-96 bg-base-100 border-2 rounded-none">
+                <div class="card lg:w-96 w-full rounded-xl bg-white shadow-lg">
                     <figure class="px-10 pt-10">
                       <img src="images/pentagon.png" alt="Shoes" class="" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">Shoes!</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
-                      <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                      <h2 class="card-title">Pentagon</h2>
+                      <img class="h-9" src="images/penta-formula.png" alt="">
+                      <div class="flex gap-4 p-2">
+                        <div>
+                            <input id="pentagon-side" class="mr-2 bg-gray-100 w-24 px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text"  placeholder="side"><span>cm</span>
+                        </div>
+                        <!-- <div>
+                            <input id="rhombus-diagonal2" class="mr-2 bg-gray-100 w-24  px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text" id="" placeholder="height"><span>cm</span>
+                        </div> -->
+                      </div>
+                      <div class="flex items-center justify-center">
+                        <p class="text-xl mr-2">Total Area:</p><span id="pentagon-area-container" class="text-xl font-bold"></span><span class="text-lg">cm<sup>2</sup></span>
+                      </div>
+                      <div class="">
+                        <button onclick="calculatePentagonArea()" class="lg:w-full w-9/12 btn bg-green-700 text-white uppercase hover:text-slate-100 hover:bg-green-600 rounded-full py-2 px-32">Calculate</button>
                       </div>
                     </div>
                   </div>
                   <!-- Ellipse -->
-                <div class="card w-96 bg-base-100 border-2 rounded-none">
+                <div class="card lg:w-96 w-full rounded-xl bg-white shadow-lg">
                     <figure class="px-10 pt-10">
                       <img src="images/ellipse.png" alt="Shoes" class="" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">Shoes!</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
-                      <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                      <h2 class="card-title">Ellipse</h2>
+                      <p>Area (A) = &#8508; x a x b</p>
+                      <div class="flex gap-4 p-2">
+                        <div>
+                            <input id="ellipse-axis-a" class="mr-2 bg-gray-100 lg:w-24 w-16 px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text"  placeholder="axis-a"><span>cm</span>
+                        </div>
+                        <div>
+                            <input id="ellipse-axis-b" class="mr-2 bg-gray-100 lg:w-24 w-16  px-2 py-1 placeholder:text-sm focus:outline-none border border-gray-400 rounded" type="text" id="" placeholder="axis-b"><span>cm</span>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-center">
+                        <p class="text-xl mr-2">Total Area:</p><span id="ellipse-area-container" class="text-xl font-bold"></span><span class="text-lg">cm<sup>2</sup></span>
+                      </div>
+                      <div class="">
+                        <button onclick="calculateEllipseArea()" class="lg:w-full w-9/12 btn bg-green-700 text-white uppercase hover:text-slate-100 hover:bg-green-600 rounded-full py-2 px-32">Calculate</button>
                       </div>
                     </div>
                   </div>
             </div>
-            <!-- Calculation Area Container -->
-            <div class="w-96 h-96 text-center underline border-2">
-                <h4 class="text-3xl">Caluculate Area</h4>
-            </div>
-        </div>
 
-        
         <!-- <div class="flex gap-12">
           
           <div class = " flex-1">
